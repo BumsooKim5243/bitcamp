@@ -1,7 +1,7 @@
 // 변수 - 변수 선언과 값 저장하기
 package step02;
 
-public class Exam03_4{   
+public class Exam03_4 {   
     public static void main(String [] args) {
         int a1, a2;
         a1 = 100;

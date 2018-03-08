@@ -1,7 +1,7 @@
 // 부동소수점 변수 - 단정도와 배정도
 package step02;
 
-public class Exam05_2{   
+public class Exam05_2 {   
     public static void main(String [] args) {
         float f;
         double d;

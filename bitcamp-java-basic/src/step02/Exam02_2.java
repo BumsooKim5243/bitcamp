@@ -1,7 +1,7 @@
 // 키보드 입력 받기 - 응용
 package step02;
 
-public class Exam02_2{   
+public class Exam02_2 {   
     public static void main(String [] args) {
         // 키보드 정보를 가져온다.
         // 키보드에서 값을 꺼내주는 도구를 연결한다.

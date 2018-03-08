@@ -1,7 +1,7 @@
 // 문자 변수 - UTF-16(Unicode 2) 코드값 저장
 package step02;
 
-public class Exam06_2{   
+public class Exam06_2 {   
     public static void main(String [] args) {
        char c1, c2, c3;
        c1 = 0x41;

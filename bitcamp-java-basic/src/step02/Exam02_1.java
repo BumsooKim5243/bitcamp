@@ -1,7 +1,7 @@
 // 키보드 입력 받기
 package step02;
 
-public class Exam02_1{   
+public class Exam02_1 {   
     public static void main(String [] args) {
         // 키보드 정보를 가져온다.
         java.io.InputStream keyboard = System.in;

@@ -1,7 +1,7 @@
 // 형변환 - 메모리 크기가 다른 변수값을 저장 될 때II
 package step02;
 
-public class Exam08_2{   
+public class Exam08_2 {   
     public static void main(String [] args) {
       byte b = 100;
       short s = 100;

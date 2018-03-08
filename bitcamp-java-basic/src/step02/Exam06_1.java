@@ -1,7 +1,7 @@
 // 문자 변수 - 유효한 값 범위
 package step02;
 
-public class Exam06_1{   
+public class Exam06_1 {   
     public static void main(String [] args) {
        char c;
 

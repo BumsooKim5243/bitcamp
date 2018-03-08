@@ -1,7 +1,7 @@
 // 정수 변수 - 정수 리터럴과 정수 변수
 package step02;
 
-public class Exam04_1{   
+public class Exam04_1 {   
     public static void main(String [] args) {
         byte b;
         b = -128;

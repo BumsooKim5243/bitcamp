@@ -1,7 +1,7 @@
 // 문자 변수 - UTF-16(Unicode 2) 코드값 저장
 package step02;
 
-public class Exam06_3{   
+public class Exam06_3 {   
     public static void main(String [] args) {
        int a = 0xac00;
        System.out.println(a);

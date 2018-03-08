@@ -1,7 +1,7 @@
 // 논리값 변수 - 유효한 값 범위
 package step02;
 
-public class Exam07_1{   
+public class Exam07_1 {   
     public static void main(String [] args) {
         boolean b1, b2;
         b1 = true;
