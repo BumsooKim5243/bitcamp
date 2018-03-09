@@ -3,15 +3,22 @@ package step04;
 
 public class Exam04_1 {
     public static void main(String[] args){
-        boolean a = true;
-        boolean b = false;
-        boolean r = a || (b = true);
-        System.out.printf("a=%b, b=%b, r=%b\n", a, b, r);
-        
-        a = true;
-        b = false;
-        r = a | (b = true);
-        System.out.printf("a=%b, b=%b, r=%b\n", a, b, r);
-        
+       int i = 1;
+       System.out.println(i << 1);
+       System.out.println(i << 2);
+       System.out.println(i << 3);
+       System.out.println(i << 4);
+       // 왼쪽으로 이동 후,
+       // 오른쪽 빈자리 : 0으로 채운다.
+       // 왼쪽 경계를 넘어간 비트 : 짜른다      
+
+       i = 0b0000_1011;
+       System.out.println(i << 1);
+       System.out.println(i << 2);
+       System.out.println(i << 3);
+       
     }
 }
+
+// 왼쪽 이동
+// - 1비트 이동은 곱하기 2한 것과 같은효과를 준다.
