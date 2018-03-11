@@ -44,75 +44,76 @@ public class App{
             }if (str1.toLowerCase().equals("team/list")){
                 for (i1 = 0; i1 < count1; i1++){
                     
-                    System.out.printf("%s, %s, %d, %s, %s\n",
+                    System.out.printf("%s, %s, %d, %s ~ %s\n",
                     team[i1].name, team[i1].description,
                     team[i1].maxQty, team[i1].startDay,
                     team[i1].endDay);
+                    System.out.println();
+                }
             }if (str1.toLowerCase().contains("team/view")){
-
                 if(str1.equals("team/view")){
                     System.out.println("팀명을 입력하시기 바랍니다.");
+                    System.out.println();
                     continue;
                 }
-                    
-            }
-            for(i1 = 0; i1 < count1; i1++){
-                if(str1.contains( mem[i2].Name)){
-                    System.out.print("팀명: " + team[i1].name );
-                    System.out.print("설명: " + team[i1].description );
-                    System.out.print("최대인원: " + team[i1].maxQty );
-                    System.out.printf("기간: %d ~ %d\n",
-                         team[i1].startDay, team[i1].endDay);
-                    break;
+                for(i1 = 0; i1 < count1; i1++){
+                    if(str1.contains( team[i2].name)){
+                        System.out.println("팀명: " + team[i1].name );
+                        System.out.println("설명: " + team[i1].description );
+                        System.out.println("최대인원: " + team[i1].maxQty );
+                        System.out.printf("기간: %s ~ %s\n",
+                        team[i1].startDay, team[i1].endDay);
+                        System.out.println();
+                        break;
+                    }
+                }
+                if(i1 == count1){
+                    System.out.println("해당 이름의 없습니다.");
+                    System.out.println();
                 }
             }
-
-            if(i1 == count1){
-                System.out.println("해당 이름의 없습니다.");
-            }
-            }
-            }if (str1.toLowerCase().equals("member/add")){
-                                   
-                    mem[count2] = new MemberAdd();
-                    System.out.print("아이디? ");
-                    mem[count2].Name = keyScan.nextLine();
-                    System.out.print("이메일? ");
-                    mem[count2].id = keyScan.nextLine();
-                    System.out.print("암호? ");
-                    mem[count2].pas = keyScan.nextLine();
-                    System.out.println();
-
-                    count2++;
+            if (str1.toLowerCase().equals("member/add")){
+            
+                mem[count2] = new MemberAdd();
+                System.out.print("아이디? ");
+                mem[count2].Name = keyScan.nextLine();
+                System.out.print("이메일? ");
+                mem[count2].id = keyScan.nextLine();
+                System.out.print("암호? ");
+                mem[count2].pas = keyScan.nextLine();
+                System.out.println();
+            
+                count2++;
             }if (str1.toLowerCase().equals("member/list")){
                 for (i2 = 0; i2 < count2; i2++){
-                    
-                    System.out.printf("%s, %s, %s\n",
-                         mem[i2].Name, mem[i2].id, mem[i2].pas);
-                }
-            }if (str1.toLowerCase().contains("member/view")){
-
+                
+                System.out.printf("%s, %s, %s\n",
+                            mem[i2].Name, mem[i2].id, mem[i2].pas);
+                System.out.println();
+                            }
+                }if (str1.toLowerCase().contains("member/view")){
+                            
                 if(str1.equals("member/view")){
-                    System.out.println("아이디를 입력하시기 바랍니다.");
-                    continue;
-                }
-                    
-           
+                System.out.println("아이디를 입력하시기 바랍니다.");
+                continue;
+            }
             for(i2 = 0; i2 < count2; i2++){
                 if(str1.contains( mem[i2].Name)){
-                    System.out.print("아이디: " + mem[i2].Name );
-                    System.out.print("설명: " + mem[i2].id );
-                    System.out.println("암호: " + mem[i2].pas );
-                    break;
-                }
+                System.out.println("아이디: " + mem[i2].Name );
+                System.out.println("설명: " + mem[i2].id );
+                System.out.println("암호: " + mem[i2].pas );
+                break;
             }
-
-            if(i2 == count2){
+                }if(i2 == count2){
                 System.out.println("해당 아이디의 회원이 없습니다.");
+                System.out.println();
             }
             }if(str1.toLowerCase().equals("quit")){
                 System.out.println("안녕히가세요!");
-                
+                System.out.println();
+                break;
             }
+        }
  
     }
 }
