@@ -3,6 +3,8 @@ package step04;
 
 public class Exam02_1 {
     public static void main(String[] args){
+        // 비교의 결과는 true 또는 false이다.
+        // 즉 boolean 값이다.
         int a = 10;
         int b = 20;
         boolean r1 = a < b;

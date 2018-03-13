@@ -3,7 +3,7 @@ package step04;
 
 public class Exam04_2 {
     public static void main(String[] args){
-       int i = 0b01101001;
+       int i = 0b01101001; // 105
        System.out.println(i);
        System.out.println(i >> 1);
        System.out.println(i >> 2);
@@ -18,9 +18,17 @@ public class Exam04_2 {
        i = 0b11111111_11111111_11111111_10101001;
        System.out.println(i);
        System.out.println(i >> 1);
+       // 1_11111111_11111111_11111111_1010100|1   => -44 
+       // => 왼쪽 빈자리는 숫자의 부호비트로 채운다.
+       //    음수니까 1로 채운다.
+       // => 2로 나눈 후에 소수점이 있으면 
+       //    그 수보다 더 작은 정수값이 되는 결과가 나온다.
        System.out.println(i >> 2);
+       // 11_11111111_11111111_11111111_101010|01 => -22
        System.out.println(i >> 3);
+       // 111_11111111_11111111_11111111_10101|001 => -11
        System.out.println(i >> 4);
+       // 1111_11111111_11111111_11111111_1010|1001 => -6
     }
 }
 

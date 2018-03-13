@@ -6,6 +6,6 @@ public class Exam01_1 {
         System.out.println(100 - 27);
         System.out.println(100 * 27);
         System.out.println(100 / 27);
-        System.out.println(100 % 27);
+        System.out.println(100 % 27); // 나눈 나머지
     }
 }
