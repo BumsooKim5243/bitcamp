@@ -13,7 +13,7 @@ import java.util.Scanner;
 //           => getMemberIndex() 추가
 public class App {
     // 클래스 변수 = 스태틱 변수
-    // => 클래스 안에서 어디에서나 사용할 수 있는 변수이다.
+    // => 클래스 안에서 어디에서나 사용할 수 있는 변수이다. 
     static Scanner keyScan = new Scanner(System.in);
     
     // 클래스 변수는 이 클래스의 모든 메서드에서 사용할 수 있다.

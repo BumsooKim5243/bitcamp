@@ -1,6 +1,6 @@
 // 클래스 - 사용 후
 package step03;
-
+ 
 public class Exam01_2 {
     public static void main(String[] args){
         // 여러개의 변수(메모리)를 묶어서 한 사람의 성적 정보를 저장하라!

@@ -1,35 +1,63 @@
 package bitcamp.java106.pms;
 
+
+import java.util.Scanner;
+
+import bitcamp.java106.pms.controller.MemberController;
+import bitcamp.java106.pms.controller.TeamController;
+import bitcamp.java106.pms.util.Console;
+
+// ver 0.2 - member 메뉴를 처리하는 코드를 관련 클래스인 MemberController로 옮긴다.
+// ver 0.1 - team 메뉴를 처리하는 코드를 TeamController로 옮긴다.
 public class App {
-    public static void main(String[] args) {
-        java.io.InputStream keyboard = System.in;
-
-        java.util.Scanner keyScan = new java.util.Scanner(keyboard);
-
-        String team,  description, mem, start, end;
-        
-        System.out.print("팀명? ");
-        team = keyScan.nextLine();
-       
-       
-        System.out.print("설명? ");
-        description = keyScan.nextLine();
-        
-        System.out.print("최대인원? ");
-        mem = keyScan.nextLine();
-        
-        System.out.print("시작일? ");
-        start = keyScan.nextLine();
-        
-        System.out.print("종료일? ");
-        end = keyScan.nextLine();
-
-        System.out.println("---------------------------------------------");
     
-        System.out.println("프로젝트: " + team);
-        System.out.println("설명: \n" +  description);
-        System.out.println("최대인원: " + mem);
-        System.out.println("일자 : " + start +" ~ " +end); 
-        
+    static Scanner keyScan = new Scanner(System.in);
+    public static String option = null; 
+    
+    static void onQuit() {
+        System.out.println("안녕히 가세요!");
+        System.exit(0);
+    }
+
+    static void onHelp() {
+        System.out.println("[도움말]");
+        System.out.println("팀 등록 명령 : team/add");
+        System.out.println("팀 조회 명령 : team/list");
+        System.out.println("팀 상세조회 명령 : team/view 팀명");
+        System.out.println("회원 등록 명령 : member/add");
+        System.out.println("회원 조회 명령 : member/list");
+        System.out.println("회원 상세조회 명령 : member/view 아이디");
+        System.out.println("종료 : quit");
+    }
+
+    public static void main(String[] args) {
+        // 클래스를 사용하기 전에 필수 값을 설정한다.
+        TeamController.keyScan = keyScan;
+        MemberController.keyScan = keyScan;
+        Console.keyScan = keyScan;
+
+        while (true) {
+            String[] arr = Console.prompt();
+            String menu = arr[0];
+            if (arr.length == 2) {
+                option = arr[1];
+            }
+            
+            if (menu.equals("quit")) {
+                onQuit();
+                
+            } else if (menu.equals("help")) {
+                onHelp();
+            } else if (menu.startsWith("team/")){
+                TeamController.service(menu, option);
+            } else if (menu.startsWith("member/")){
+                MemberController.service(menu, option);
+            } else {
+                    System.out.println("명령어가 올바르지 않습니다.");
+            }                
+                System.out.println();
+        }
     }
 }
+            
+    

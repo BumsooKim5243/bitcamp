@@ -1,0 +1,119 @@
+package step02.assignment;
+
+public class Test02 {
+    public static void main(String[] args) {
+        java.io.InputStream keyboard = System.in;
+        java.util.Scanner keyScan = new java.util.Scanner(keyboard);
+
+        String name1, name2, name3, name4, name5;
+        int kor1, kor2, kor3 ,kor4, kor5;
+        int eng1, eng2, eng3, eng4, eng5;
+        int math1, math2, math3, math4,math5;
+        int result1,result2,result3,result4,result5;
+        float average1, average2, average3, average4, average5;
+        
+        System.out.print("입력? ");
+        name1 = keyScan.next();
+        kor1 = keyScan.nextInt();
+        eng1 = keyScan.nextInt();
+        math1 = keyScan.nextInt();
+        
+        result1 = kor1 + eng1 + math1;
+        average1 = result1/3F;
+        
+        System.out.print("입력? ");
+        name2 = keyScan.next();
+        kor2 = keyScan.nextInt();
+        eng2 = keyScan.nextInt();
+        math2 = keyScan.nextInt();
+        
+        result2 = kor2 + eng2 + math2;
+        average2 = result2/3F;
+
+        System.out.print("입력? ");
+        name3 = keyScan.next();
+        kor3 = keyScan.nextInt();
+        eng3 = keyScan.nextInt();
+        math3 = keyScan.nextInt();
+        
+        result3 = kor3 + eng3 + math3;
+        average3 = result3/3F;
+        
+        System.out.print("입력? ");
+        name4 = keyScan.next();
+        kor4 = keyScan.nextInt();
+        eng4 = keyScan.nextInt();
+        math4 = keyScan.nextInt();
+      
+        result4 = kor4 + eng4 + math4;
+        average4 = result4/3F;
+
+        
+        System.out.print("입력? ");
+        name5 = keyScan.next();
+        kor5 = keyScan.nextInt();
+        eng5 = keyScan.nextInt();
+        math5 = keyScan.nextInt();
+              
+        result5 = kor5 + eng5 + math5;
+        average5 = result5/3F;
+
+        
+        System.out.println("---------------------------------------------");
+         
+        System.out.print(name1);
+        System.out.print(" " + kor1);
+        System.out.print(" " + eng1);
+        System.out.print(" " + math1);
+        System.out.print(" ");
+        System.out.print(result1);
+        System.out.print(" ");
+        System.out.print(average1);
+        System.out.println();
+
+        System.out.print(name2);
+        System.out.print(" " + kor2);
+        System.out.print(" " + eng2);
+        System.out.print(" " + math2);
+        System.out.print(" ");
+        System.out.print(result2);
+        System.out.print(" ");
+        System.out.print(average2);
+        System.out.println();
+        
+        System.out.print(name3);
+        System.out.print(" " + kor3);
+        System.out.print(" " + eng3);
+        System.out.print(" " + math3);
+        System.out.print(" ");
+        System.out.print(result3);
+        System.out.print(" ");
+        System.out.print(average3);
+        System.out.println();
+
+
+        System.out.print(name4);
+        System.out.print(" " + kor4);
+        System.out.print(" " + eng4);
+        System.out.print(" " + math4);
+        System.out.print(" ");
+        System.out.print(result4);
+        System.out.print(" ");
+        System.out.print(average4);
+        System.out.println();
+
+
+        System.out.print(name5);
+        System.out.print(" " + kor5);
+        System.out.print(" " + eng5);
+        System.out.print(" " + math5);
+        System.out.print(" ");
+        System.out.print(result5);
+        System.out.print(" ");
+        System.out.print(average5);
+        System.out.println();
+
+
+      
+    }
+}

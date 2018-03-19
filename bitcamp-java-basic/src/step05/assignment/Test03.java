@@ -21,7 +21,7 @@ public class Test03{
 
             while (starCnt <= starLen){
                 System.out.print("*");
-                starCnt++;
+                starCnt++; 
             }
             System.out.println();
             starLen += 2;
