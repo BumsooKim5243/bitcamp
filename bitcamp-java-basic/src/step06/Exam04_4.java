@@ -3,7 +3,7 @@ package step06;
 
 public class Exam04_4 {
 
-    static void m1 (int value){
+    static int m1 (int value){
         int r1 = m2(value);
         int r2 = m3(value);
         return r1 + r2;
