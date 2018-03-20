@@ -15,7 +15,7 @@ public class Exam04_1 {
           swap(a, b);
           System.out.printf("main(): a = %d, b = %d\n", a, b);
     }
-}      
+}
 // 실행 순서와 메모리
 // 1) java -classpath bin step06.Exam04_1
 //    => JVM은 클래스 정보를 Method Area 영역에 로드한다.
