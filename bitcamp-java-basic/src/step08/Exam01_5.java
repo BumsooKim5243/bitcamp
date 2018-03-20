@@ -2,14 +2,16 @@
 package step08;
 
 public class Exam01_5 {
+    
     static class Student {
-        // 모든 인스턴스가 공유하는 값을 저장할 때는 클래스 변수르 사용한다.
-        static int count;
+        // 모든 인스턴스가 공유하는 값을 저장할 때는 클래스 변수를 사용한다.
+        static int count; 
         
         // 인스턴스마다 개별적으로 관리해야 할 값은 인스턴스 변수에 저장한다.
         String name;
         int age;
     }
+    
     public static void main(String[] args) {
         Student.count = 0;
         
@@ -34,13 +36,13 @@ public class Exam01_5 {
         
         // 인스턴스 주소를 통해 클래스 변수를 사용할 수 있다.
         // => 인스턴스에 count라는 변수가 없으면 클래스에서 찾기 때문이다.
-        // => 하지만 이렇게 사용하지 말라
-        // => 다른 개발자가 이코드를 봤을때, count가 인스턴스 변수라고 착각할 것이다.
+        // => 하지만 이렇게 사용하지 말라!
+        // => 다른 개발자가 이 코드를 봤을 때, count가 인스턴스 변수라고 착각할 것이다.
         // "클래스 변수는 클래스 이름을 사용하여 접근하라!"
         System.out.println(s1.count);
         System.out.println(s2.count);
         System.out.println(s3.count);
     }
-
 }
+
 
