@@ -97,7 +97,9 @@ public class BoardController {
             System.out.printf("내용(%s)", board.description);
             upboard.description = keyScan.nextLine();
             upboard.date = board.date;
+            upboard.count = board.count;
             boards[i] = upboard;
+            
         }
     }
     static void onBoardDelete(String post) {
@@ -112,10 +114,7 @@ public class BoardController {
             System.out.println("해당 게시물이 없습니다.");
         }else{
 
-            System.out.print("정말 삭제하시겠습니까?(Y/n)");
-            String input = keyScan.nextLine().toLowerCase();
-
-            if (Console.confirm("정말 삭제하시겠습니까?")){
+           if (Console.confirm("정말 삭제하시겠습니까?")){
                 boards[i] = null;
                 System.out.println("삭제하였습니다.");
             }
