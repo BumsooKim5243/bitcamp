@@ -6,7 +6,7 @@ import java.util.Scanner;
 import bitcamp.java106.pms.dao.BoardDao;
 import bitcamp.java106.pms.domain.Board;
 import bitcamp.java106.pms.util.Console;
-
+ 
 public class BoardController {
     Scanner keyScan; 
 

@@ -1,7 +1,7 @@
 package bitcamp.java106.pms.dao;
 
 import bitcamp.java106.pms.domain.Team;
-
+ 
 public class TeamDao {
     Team[] teams = new Team[1000];
     int teamIndex = 0;
