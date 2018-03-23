@@ -8,7 +8,7 @@ import bitcamp.java106.pms.domain.Board;
 import bitcamp.java106.pms.util.Console;
 
 public class BoardController {
-    Scanner keyScan;
+    Scanner keyScan; 
 
     BoardDao boardDao = new BoardDao();
     

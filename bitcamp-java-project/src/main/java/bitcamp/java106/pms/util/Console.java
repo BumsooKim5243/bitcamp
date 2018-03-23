@@ -1,6 +1,6 @@
 // 이 클래스는 명령창에서 사용할 기능을 모아 둔 클래스이다.
 package bitcamp.java106.pms.util;
-
+ 
 import java.util.Scanner;
 
 public class Console {
