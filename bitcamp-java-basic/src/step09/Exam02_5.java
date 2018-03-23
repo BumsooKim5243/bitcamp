@@ -36,3 +36,8 @@ public class Exam02_5 {
         System.out.println(c.get(Calendar.SECOND)); // 초
     }
 }
+
+
+
+
+
