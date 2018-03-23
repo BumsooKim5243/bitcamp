@@ -50,11 +50,28 @@ public class TeamMemberController {
             System.out.printf("%s 회원은 없습니다.\n", memberId);
             return;
         }
-        if (team.isExist(memberId)) {
+        // 기존에 등록된 회원인지 검사
+        boolean exist = false;
+        for (int i = 0; i < team.members.length; i++) {
+            if (team.members[i] == null) continue;
+            if (team.members[i].id.equals(memberId)) {
+                exist = true;
+                break;
+
+            }
+        }
+        if (exist) {
             System.out.println("이미 등록된 회원입니다.");
             return;
         }
-        team.addMember(member);
+        // 팀 멤버 배열에서 빈 방을 찾아 그 방에 멤버 객체(의 주소)를 넣는다.
+        for (int i = 0; i < team.members.length; i++) {
+            if (team.members[i] == null) {
+                team.members[i] = member;
+                System.out.println("추가하였습니다.");
+                break;
+            }
+        }
     }
 
     void onTeamMemberList(String teamName) {
@@ -88,6 +105,7 @@ public class TeamMemberController {
             System.out.printf("%s 팀은 존재하지 않습니다.", teamName);
             return;
         }
+        System.out.println("[팀 멤버 삭제]");
         if (teamName == null) {
             System.out.println("팀명을 입력하시기 바랍니다.");
             return; 
@@ -95,14 +113,15 @@ public class TeamMemberController {
         System.out.print("삭제할 팀은? ");
         String memberId = keyScan.nextLine();
 
-        if (!team.isExist(memberId)) {
-            System.out.println("이 팀의 회원이 아닙니다.");
-            return;
+        for (int i = 0; i < team.members.length; i++) {
+            if (team.members[i] == null) continue;
+            if (team.members[i].id.equals(memberId)) {
+                team.members[i] =null;
+                System.out.println("삭제하였습니다.");
+                return;
+            }
         }
-        team.deleteMember(memberId);
-    
-        System.out.println("[팀 멤버 삭제]");
-        System.out.println("삭제되었습니다.");
+        System.out.println("이팀의 회원이 아닙니다.");
     }
 }
 
