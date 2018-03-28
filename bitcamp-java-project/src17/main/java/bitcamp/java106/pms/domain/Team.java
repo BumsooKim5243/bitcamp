@@ -7,6 +7,7 @@ import java.sql.Date;
 // => 즉 팀 정보를 위해 사용자(자바 언어 사용자. 즉 개발자)가 새로 정의한 데이터 타입이다.
 //
 public class Team {
+
     private String name;
     private String description;
     private int maxQty;
@@ -15,13 +16,14 @@ public class Team {
     private Member[] members = new Member[10];
     
     
-    
     // 사용자 정의 데이터 타입에서 메서드 정의란?
     // => 새 데이터 타입의 값을 다룰 연산자를 정의하는 것을 의미한다.
     
+
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -86,6 +88,16 @@ public class Team {
         return 0;
     }
     
+    public Member getMember(String memberId) {
+        for (int i = 0; i < this.members.length; i++) {
+            if (this.members[i] == null) continue;
+            if (this.members[i].getId().equals(memberId)) {
+                return this.members[i];
+            }
+        }
+        return null;
+    }
+    
     public boolean isExist(String memberId) {
         for (int i = 0; i < this.members.length; i++) {
             if (this.members[i] == null) continue;
@@ -95,6 +107,13 @@ public class Team {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Team [name=" + name + ", startDate=" + startDate + ", endDate=" + endDate + "]";
+    }
+    
+    
 }
 
 //ver 16 - 캡슐화 적용. 겟터, 셋터 추가.
