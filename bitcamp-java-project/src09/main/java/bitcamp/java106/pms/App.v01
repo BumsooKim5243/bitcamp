@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 // ver 0.1 - team 메뉴를 처리하는 코드를 TeamController로 옮긴다.
 public class App {
-    
     static Scanner keyScan = new Scanner(System.in);
     public static String option = null; 
     
@@ -34,17 +33,20 @@ public class App {
 
         while (true) {
             String[] arr = Console.prompt();
+
             String menu = arr[0];
             if (arr.length == 2) {
                 option = arr[1];
+            } else {
+                option = null;
             }
-            
+
             if (menu.equals("quit")) {
                 onQuit();
                 break;
-            }  else if (menu.equals("help")) {
+            } else if (menu.equals("help")) {
                 onHelp();
-            } else if (menu.startsWith("team/")){
+            } else if (menu.startsWith("team/")) {
                 TeamController.service(menu, option);
             } else if (menu.equals("member/add")) {
                 MemberController.onMemberAdd();
@@ -53,15 +55,14 @@ public class App {
             } else if (menu.equals("member/view")) {
                 MemberController.onMemberView(option);                
             } else if (menu.equals("member/update")) {
-                MemberController.onMemberUpdate(option);
+                MemberController.onMemberUpdate(option);                
             } else if (menu.equals("member/delete")) {
-                MemberController.onMemberDelete(option);
+                MemberController.onMemberDelete(option);                
             } else {
-                    System.out.println("명령어가 올바르지 않습니다.");
-            }                
-                System.out.println();
+                System.out.println("명령어가 올바르지 않습니다.");
             }
+
+            System.out.println();
         }
     }
-            
-    
+}

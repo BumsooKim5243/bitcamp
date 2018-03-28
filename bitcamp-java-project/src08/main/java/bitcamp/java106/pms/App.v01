@@ -1,5 +1,6 @@
 package bitcamp.java106.pms;
 
+
 import bitcamp.java106.pms.domain.Team;
 import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.controller.TeamController;
@@ -8,16 +9,15 @@ import java.util.Scanner;
 
 // ver 0.1 - 팀 관리 기능(메서드)을 별도의 클래스로 옮긴다.
 //           => controller.TeamController 클래스 추가
-//           사용자 입력 기능을 별도에 클래스로 옮긴다.
-//           => utill.Console 클래스 추가
+//           사용자 입력 기능을 별도의 클래스로 옮긴다.
+//           => util.Console 클래스 추가
 public class App {
-    
     static Scanner keyScan = new Scanner(System.in);
     public static String option = null; 
     static Member[] members = new Member[1000];
     static int memberIndex = 0;
-    
-    static int getMemberIndex(String id){
+
+    static int getMemberIndex(String id) {
         for (int i = 0; i < memberIndex; i++) {
             if (members[i] == null) continue;
             if (id.equals(members[i].id.toLowerCase())) {
@@ -27,7 +27,6 @@ public class App {
         return -1;
     }
 
-    
     static void onQuit() {
         System.out.println("안녕히 가세요!");
     }
@@ -43,7 +42,6 @@ public class App {
         System.out.println("종료 : quit");
     }
 
-    
     static void onMemberAdd() {
         System.out.println("[회원 정보 입력]");
         Member member = new Member();
@@ -74,11 +72,10 @@ public class App {
         System.out.println("[회원 정보 조회]");
         if (option == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
         
-       int i = getMemberIndex(option);
+        int i = getMemberIndex(option);
 
         if (i == -1) {
             System.out.println("해당 아이디의 회원이 없습니다.");
@@ -89,11 +86,11 @@ public class App {
             System.out.printf("암호: %s\n", member.password);
         }
     }
-    static void onMemberUpdate(){
+
+    static void onMemberUpdate() {
         System.out.println("[회원 정보 변경]");
         if (option == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
         
@@ -115,26 +112,25 @@ public class App {
         }
     }
 
-    static void onMemberDelete(){
-        System.out.println("[회원 정보 조회]");
+    static void onMemberDelete() {
+        System.out.println("[회원 정보 삭제]");
         if (option == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
-         int i = getMemberIndex(option);
+        
+        int i = getMemberIndex(option);
 
         if (i == -1) {
             System.out.println("해당 아이디의 회원이 없습니다.");
         } else {
-           
             if (Console.confirm("정말 삭제하시겠습니까?")) {
                 members[i] = null;
                 System.out.println("삭제하였습니다.");
             }
         }
     }
-    
+
     public static void main(String[] args) {
         // 클래스를 사용하기 전에 필수 값을 설정한다.
         TeamController.keyScan = keyScan;
@@ -142,11 +138,14 @@ public class App {
 
         while (true) {
             String[] arr = Console.prompt();
+
             String menu = arr[0];
             if (arr.length == 2) {
                 option = arr[1];
+            } else {
+                option = null;
             }
-            
+
             if (menu.equals("quit")) {
                 onQuit();
                 break;
@@ -169,15 +168,14 @@ public class App {
             } else if (menu.equals("member/view")) {
                 onMemberView();                
             } else if (menu.equals("member/update")) {
-                onMemberUpdate();
+                onMemberUpdate();                
             } else if (menu.equals("member/delete")) {
-                onMemberDelete();
+                onMemberDelete();                
             } else {
-                    System.out.println("명령어가 올바르지 않습니다.");
-            }                
-                System.out.println();
+                System.out.println("명령어가 올바르지 않습니다.");
             }
+
+            System.out.println();
         }
     }
-            
-    
+}

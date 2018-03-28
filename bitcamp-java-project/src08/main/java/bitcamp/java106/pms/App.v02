@@ -5,13 +5,13 @@ import bitcamp.java106.pms.controller.MemberController;
 import bitcamp.java106.pms.util.Console;
 import java.util.Scanner;
 
-// ver 0.2 - 호원 관리 기능(메서드)을 별도의 클래스로 옮긴다.
+// ver 0.2 - 회원 관리 기능을 별도의 클래스로 옮긴다.
+//           => controller.MemberController 클래스 추가
 // ver 0.1 - 팀 관리 기능(메서드)을 별도의 클래스로 옮긴다.
 //           => controller.TeamController 클래스 추가
-//           사용자 입력 기능을 별도에 클래스로 옮긴다.
-//           => utill.Console 클래스 추가
+//           사용자 입력 기능을 별도의 클래스로 옮긴다.
+//           => util.Console 클래스 추가
 public class App {
-    
     static Scanner keyScan = new Scanner(System.in);
     public static String option = null; 
     
@@ -38,11 +38,14 @@ public class App {
 
         while (true) {
             String[] arr = Console.prompt();
+
             String menu = arr[0];
             if (arr.length == 2) {
                 option = arr[1];
+            } else {
+                option = null;
             }
-            
+
             if (menu.equals("quit")) {
                 onQuit();
                 break;
@@ -65,15 +68,14 @@ public class App {
             } else if (menu.equals("member/view")) {
                 MemberController.onMemberView(option);                
             } else if (menu.equals("member/update")) {
-                MemberController.onMemberUpdate(option);
+                MemberController.onMemberUpdate(option);                
             } else if (menu.equals("member/delete")) {
-                MemberController.onMemberDelete(option);
+                MemberController.onMemberDelete(option);                
             } else {
-                    System.out.println("명령어가 올바르지 않습니다.");
-            }                
-                System.out.println();
+                System.out.println("명령어가 올바르지 않습니다.");
             }
+
+            System.out.println();
         }
     }
-            
-    
+}

@@ -1,11 +1,11 @@
-//팀 관련 기능을 모아 둔 클래스
+// 팀 관련 기능을 모아 둔 클래스
 package bitcamp.java106.pms.controller;
 
 import bitcamp.java106.pms.domain.Team;
 import bitcamp.java106.pms.util.Console;
 import java.util.Scanner;
 
-public class TeamController{
+public class TeamController {
     // 이 클래스를 사용하기 전에 App 클래스에서 준비한 Scanner 객체를
     // keyScan 변수에 저장하라!
     public static Scanner keyScan;
@@ -56,18 +56,17 @@ public class TeamController{
                 teams[i].startDate, teams[i].endDate);
         }
     }
-    
+
     public static void onTeamView(String name) {
         System.out.println("[팀 정보 조회]");
         if (name == null) {
             System.out.println("팀명을 입력하시기 바랍니다.");
-            System.out.println();
             return; // 값을 리턴하면 안되기 때문에 return 명령만 작성한다.
                     // 의미? 즉시 메서드 실행을 멈추고 이전 위치로 돌아간다.
         }
         
         int i = getTeamIndex(name);
-        
+
         if (i == -1) {
             System.out.println("해당 이름의 팀이 없습니다.");
         } else {
@@ -79,17 +78,16 @@ public class TeamController{
                 team.startDate, team.endDate);
         }
     }
+
     public static void onTeamUpdate(String name) {
         System.out.println("[팀 정보 변경]");
         if (name == null) {
             System.out.println("팀명을 입력하시기 바랍니다.");
-            System.out.println();
-            return; 
+            return;
         }
         
-        
         int i = getTeamIndex(name);
-        
+
         if (i == -1) {
             System.out.println("해당 이름의 팀이 없습니다.");
         } else {
@@ -110,28 +108,24 @@ public class TeamController{
             System.out.println("변경하였습니다.");
         }
     }
-    
 
     public static void onTeamDelete(String name) {
         System.out.println("[팀 정보 삭제]");
         if (name == null) {
             System.out.println("팀명을 입력하시기 바랍니다.");
-            System.out.println();
-            return; // 값을 리턴하면 안되기 때문에 return 명령만 작성한다.
-                    // 의미? 즉시 메서드 실행을 멈추고 이전 위치로 돌아간다.
+            return; 
         }
         
-       
         int i = getTeamIndex(name);
-        
-        if (i == 1) {
+
+        if (i == -1) {
             System.out.println("해당 이름의 팀이 없습니다.");
         } else {
-            
-            if (Console.confirm("정말 삭제하시겠습니까?")){
+            if (Console.confirm("정말 삭제하시겠습니까?")) {
                 teams[i] = null;
                 System.out.println("삭제하였습니다.");
             }
         }
     }
+    
 }

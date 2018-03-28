@@ -1,4 +1,4 @@
-// 이 클래스는 회원 관련 기능을 모아 둔 클래스이다.
+// 이 클래스는 회원 관련 기능을 모두 둔 클래스이다.
 package bitcamp.java106.pms.controller;
 
 import bitcamp.java106.pms.domain.Member;
@@ -13,7 +13,7 @@ public class MemberController {
     static Member[] members = new Member[1000];
     static int memberIndex = 0;
 
-    static int getMemberIndex(String id){
+    static int getMemberIndex(String id) {
         for (int i = 0; i < memberIndex; i++) {
             if (members[i] == null) continue;
             if (id.equals(members[i].id.toLowerCase())) {
@@ -53,11 +53,10 @@ public class MemberController {
         System.out.println("[회원 정보 조회]");
         if (id == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
         
-       int i = getMemberIndex(id);
+        int i = getMemberIndex(id);
 
         if (i == -1) {
             System.out.println("해당 아이디의 회원이 없습니다.");
@@ -68,11 +67,11 @@ public class MemberController {
             System.out.printf("암호: %s\n", member.password);
         }
     }
-    public static void onMemberUpdate(String id){
+
+    public static void onMemberUpdate(String id) {
         System.out.println("[회원 정보 변경]");
         if (id == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
         
@@ -94,23 +93,23 @@ public class MemberController {
         }
     }
 
-    public static void onMemberDelete(String id){
-        System.out.println("[회원 정보 조회]");
+    public static void onMemberDelete(String id) {
+        System.out.println("[회원 정보 삭제]");
         if (id == null) {
             System.out.println("아이디를 입력하시기 바랍니다.");
-            System.out.println();
             return;
         }
-         int i = getMemberIndex(id);
+        
+        int i = getMemberIndex(id);
 
         if (i == -1) {
             System.out.println("해당 아이디의 회원이 없습니다.");
         } else {
-           
             if (Console.confirm("정말 삭제하시겠습니까?")) {
                 members[i] = null;
                 System.out.println("삭제하였습니다.");
             }
         }
     }
+    
 }
