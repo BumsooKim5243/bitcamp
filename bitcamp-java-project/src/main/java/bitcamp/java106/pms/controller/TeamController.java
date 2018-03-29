@@ -101,7 +101,7 @@ public class TeamController {
             System.out.println("해당 이름의 팀이 없습니다.");
         } else {
             Team updateTeam = new Team();
-            System.out.printf("팀명 : %s\n", team.getName());
+            System.out.printf("팀명: %s\n", team.getName());
             updateTeam.setName(team.getName());
             System.out.printf("설명(%s)? ", team.getDescription());
             updateTeam.setDescription(this.keyScan.nextLine());

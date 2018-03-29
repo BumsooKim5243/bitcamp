@@ -4,10 +4,12 @@ import java.sql.Date;
 import java.util.Scanner;
 
 import bitcamp.java106.pms.controller.BoardController;
+import bitcamp.java106.pms.controller.ClassroomController;
 import bitcamp.java106.pms.controller.MemberController;
 import bitcamp.java106.pms.controller.TaskController;
 import bitcamp.java106.pms.controller.TeamController;
 import bitcamp.java106.pms.controller.TeamMemberController;
+import bitcamp.java106.pms.dao.ClassroomDao;
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.dao.TaskDao;
 import bitcamp.java106.pms.dao.TeamDao;
@@ -42,11 +44,12 @@ public class App {
         MemberDao memberDao = new MemberDao();
         TaskDao taskDao = new TaskDao();
         TeamMemberDao teamMemberDao = new TeamMemberDao();
-        
+        ClassroomDao classroomDao = new ClassroomDao();
         // 테스트용 데이터를 준비한다.
         prepareMemberData(memberDao);
         prepareTestData(teamDao, teamMemberDao);
         
+        ClassroomController classroomController = new ClassroomController(keyScan, classroomDao);
         TeamController teamController = new TeamController(keyScan, teamDao);
         TeamMemberController teamMemberController = new TeamMemberController(keyScan, teamDao,
                                                                              memberDao, teamMemberDao);
@@ -80,6 +83,8 @@ public class App {
                 boardController.service(menu, option);
             } else if (menu.startsWith("task/")) {
                 taskController.service(menu, option);
+            } else if (menu.startsWith("classroom/")) {
+                classroomController.service(menu, option);
             } else {
                 System.out.println("명령어가 올바르지 않습니다.");
             }

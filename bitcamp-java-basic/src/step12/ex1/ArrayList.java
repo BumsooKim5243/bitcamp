@@ -19,11 +19,9 @@ public class ArrayList {
         this(DEFAULT_CAPACITY);
     }
     
-    
-    
     public ArrayList(int capacity) {
         // super(); 항상 생성자에는 수퍼 클래스의 기본 생성자를 호출하는 문장이 숨겨져 있다.
-        //          물론 개발자가 수퍼 클래스의 생성자를 호출하겠다고 명시한다면
+        //          물론 개발자가 수퍼 클래스의 생성자를 호출하겠다고 명시한다면 
         //          당연히 자동으로 붙지 않는다.
         if (capacity < DEFAULT_CAPACITY) {
             list = new Object[DEFAULT_CAPACITY];
@@ -48,9 +46,9 @@ public class ArrayList {
     }
     
     public void remove(int index) {
-        if (index < 0 || index >= cursor) {
+        if (index < 0 || index >= cursor)
             return;
-        }
+        
         for (int i = index + 1; i < cursor; i++) {
             list[i-1] = list[i];
         }
@@ -58,11 +56,11 @@ public class ArrayList {
     }
     
     public void add(int index, Object value) {
-        if (index < 0 || index >= cursor) 
+        if (index < 0 || index > cursor)
             return;
         
         if (cursor >= list.length) {
-           this.increaseArray();
+            this.increaseArray();
         }
         
         for (int i = cursor - 1; i >= index; i--) {
@@ -73,19 +71,38 @@ public class ArrayList {
     }
     
     private void increaseArray() {
-        if (cursor >= list.length) {
-            Object[] list2 = new Object[list.length + DEFAULT_CAPACITY];
-            for (int i = 0; i < list.length; i++) {
-                list2[i] = list[i];
-            }
-            list = list2;
+        Object[] list2 = new Object[list.length + DEFAULT_CAPACITY];
+        for (int i = 0; i < list.length; i++) {
+            list2[i] = list[i];
         }
+        list = list2;
     }
     
     public int size() {
         return cursor;
     }
+    
+    public boolean contains(Object value) {
+        for (Object obj : list) {
+            if (obj.equals(value)) // 같은 객체가 들어 있는지 검사하는 것이 아니다.
+                return true;       // 같은 내용을 가진 객체가 들어 있는지 검사하는 것이다.
+        }
+        return false;
+    }
+    
+    public int indexOf(Object value) {
+        for (int i = 0; i < list.length; i++) {
+            if (list[i].equals(value)) // 같은 객체가 들어 있는지 검사하는 것이 아니다.
+                return i;          // 같은 내용을 가진 객체가 들어 있는지 검사하는 것이다.
+        }
+        return -1;
+    }
 }
+
+
+
+
+
 
 
 

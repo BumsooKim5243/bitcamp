@@ -56,7 +56,6 @@ public class TeamMemberDao {
         String ptn = teamName.toLowerCase();
         
         for (int i = 0; i < this.teamCollection.size(); i++) {
-
             String tn = ((String)this.teamCollection.get(i)).toLowerCase();
             if (tn.equals(ptn)) {
                 cnt++;
@@ -69,8 +68,8 @@ public class TeamMemberDao {
         int cnt = 0;
         String ptn = teamName.toLowerCase();
         String[] members = new String[this.getMemberCount(teamName)];
+        
         for (int i = 0, x = 0; i < this.teamCollection.size(); i++) {
-
             String tn = ((String)this.teamCollection.get(i)).toLowerCase();
             if (tn.equals(ptn)) {
                 members[x++] = (String)this.memberCollection.get(i);
@@ -83,6 +82,7 @@ public class TeamMemberDao {
 // 메서드 시그너처(method signature) = 함수 프로토타입(function prototype)
 // 메서드의 이름과 파라미터 형식, 리턴 타입에 대한 정보를 말한다.
 
+// ver18 - ArrayList를 적용 객체(의 주소)를 관리한다.
 // ver17 - 클래스 추가
 
 
