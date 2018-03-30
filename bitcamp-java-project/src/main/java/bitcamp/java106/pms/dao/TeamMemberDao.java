@@ -1,82 +1,67 @@
 package bitcamp.java106.pms.dao;
 
-import bitcamp.java106.pms.util.ArrayList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class TeamMemberDao {
-    private ArrayList teamCollection = new ArrayList();
-    private ArrayList memberCollection = new ArrayList();
-    
-    private int getIndex(String teamName, String memberId) {
-        String ptn = teamName.toLowerCase();
-        String pmi = memberId.toLowerCase();
-        for (int i = 0; i < this.teamCollection.size(); i++) {
-            
-            String tn = ((String)this.teamCollection.get(i)).toLowerCase();
-            String mi = ((String)this.memberCollection.get(i)).toLowerCase();
-            if (tn.equals(ptn) && mi.equals(pmi)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-    
-    // 연산자는 외부에서 사용하는 것이기 때문에 공개해야 한다.
-    // => 그래서 public modifier를 사용한다.
+
+    private HashMap<String, ArrayList<String>> collection = new HashMap<>();
+
+
     public int addMember(String teamName, String memberId) {
-        if (this.isExist(teamName, memberId)) {
+        String teamNameLC = teamName.toLowerCase();
+        String memberIdLC = memberId.toLowerCase();
+
+        // 팀 이름으로 멤버 아이다가 들어 있는 ArrayList를 가져온다
+        ArrayList<String>members = collection.get(teamNameLC);
+
+        if (members == null) { // 해당팀의 멤버가 추가된 적이 없다면,
+            members = new ArrayList<>();
+            members.add(memberId);
+            collection.put(teamNameLC, members);
+            return 1;
+        }
+
+        // ArrayLIst에 해당 아이디를 가진 멤버가 들어 있다면,
+        if(members.contains(memberIdLC)) {
             return 0;
         }
-        this.teamCollection.add(teamName);
-        this.memberCollection.add(memberId);
+
+        members.add(memberIdLC);
         return 1;
     }
 
     public int deleteMember(String teamName, String memberId) {
-        int index = this.getIndex(teamName, memberId);
-        if (index < 0) { // 존재하지 않는 멤버라면,
+        String teamNameLC = teamName.toLowerCase();
+        String memberIdLC = memberId.toLowerCase();
+
+        ArrayList<String> members = collection.get(teamNameLC);
+        if (members == null || !members.contains(memberIdLC))
             return 0;
-        }
-        this.teamCollection.remove(index);;
-        this.memberCollection.remove(index);;
+
+        members.remove(memberIdLC);
         return 1;
     }
 
-
-    public boolean isExist(String teamName, String memberId) {
-        if (this.getIndex(teamName, memberId) < 0) { // 이미 존재하는 멤버라면,
-            return false;
-        } else {
-            
-            return true;
-        }
-    }
-    
-    private int getMemberCount(String teamName) {
-        int cnt = 0;
-        String ptn = teamName.toLowerCase();
-        
-        for (int i = 0; i < this.teamCollection.size(); i++) {
-            String tn = ((String)this.teamCollection.get(i)).toLowerCase();
-            if (tn.equals(ptn)) {
-                cnt++;
-            }
-        }
-        return cnt;
-    }
-    
-    public String[] getMembers(String teamName) {
-        int cnt = 0;
-        String ptn = teamName.toLowerCase();
-        String[] members = new String[this.getMemberCount(teamName)];
-        
-        for (int i = 0, x = 0; i < this.teamCollection.size(); i++) {
-            String tn = ((String)this.teamCollection.get(i)).toLowerCase();
-            if (tn.equals(ptn)) {
-                members[x++] = (String)this.memberCollection.get(i);
-            }
-        }
-        return members;
+    public Iterator<String> getMembers(String teamName) {
+        ArrayList<String> members = collection.get(teamName.toLowerCase());
+        if (members == null)
+            return null;
+        return members.iterator();
     } 
+    
+    public boolean isExist(String teamName, String memberId) {
+        String teamNameLC = teamName.toLowerCase();
+        String memberIdLC = memberId.toLowerCase();
+
+        // 팀 이름으로 멤버 아이다가 들어 있는 ArrayList를 가져온다
+        ArrayList<String> members = collection.get(teamNameLC);
+        if (members == null || !members.contains(memberIdLC))
+            return false;
+
+        return true;
+    }
 }
 // 용어 정리!
 // 메서드 시그너처(method signature) = 함수 프로토타입(function prototype)
