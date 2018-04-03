@@ -38,7 +38,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        // 클래스를 사용하기 전에 필수 값을 설정한다.
+        // 클래스를 사용하기 전에 필수 값을 설정한다. 
         
         TeamDao teamDao = new TeamDao();
         MemberDao memberDao = new MemberDao();
