@@ -1,19 +1,22 @@
 // 메서드 : JVM 메모리
 package step06;
 
+import java.util.Scanner;
+
 public class Exam04_1 {
 
-    static void swap(int a, int b){
+    static void swap(int a, int b) {
         int temp = a;
         a = b;
         b = temp;
-        System.out.printf("swap(): a = %d, b = %d\n", a, b);
-    } 
-    public static void main(String[] agrs) {
-          int a = 100;
-          int b = 200;
-          swap(a, b);
-          System.out.printf("main(): a = %d, b = %d\n", a, b);
+        System.out.printf("swap(): a=%d, b=%d\n", a, b);
+    }
+
+    public static void main(String[] args) {
+        int a = 100;
+        int b = 200;
+        swap(a, b);
+        System.out.printf("main(): a=%d, b=%d\n", a, b);
     }
 }
 // 실행 순서와 메모리
@@ -27,11 +30,12 @@ public class Exam04_1 {
 //    => JVM Stack 영역에 있던 swap()이 사용한 메모리를 제거한다.
 // 5) main() 실행 완료
 //    => JVM Stack 영역에 있던 main()이 사용한 메모리를 제거한다.
-// 6) JVM 실행 종룡
+// 6) JVM 실행 종료
 //    => JVM이 사용한 모든 메모리를 OS에 반납한다.
-     
+
+
 // JVM이 메모리를 다루는 방법
-//    크게 다음 세가지 영역으로 나눠 관리한다.
+// - 크게 다음 세가지 영역으로 나눠 관리한다.
 // 1) Method Area
 //    => 클래스 명령 코드를 둔다.
 //    => static 변수를 둔다.
@@ -42,8 +46,7 @@ public class Exam04_1 {
 //    => 스레드 별로 JVM Stack 메모리를 따로 관리한다.
 //    => 메서드의 로컬 변수는 둔다.
 //    => 각 메서드마다 프레임 단위로 관리한다.
-//    => 메서드 호출이 끝나면 그 메서드가 사용한
+//    => 메서드 호출이 끝나면 그 메서드가 사용한 
 //       프레임 메모리가 제거된다.
 //
 // JVM이 종료하면 JVM이 사용했던 모든 메모리를 OS에 반납한다.
-
