@@ -25,7 +25,7 @@ public class Exam03 {
         //    public 이 아니어도 된다.
         m = clazz.getDeclaredMethod("m3"); // OK
         System.out.println(m.getName());
-        System.out.println(clazz.getDeclaredMethod("toString")); // 실행 오류!
+        //System.out.println(clazz.getDeclaredMethod("toString")); // 실행 오류!
             // 상속 받은 메서드는 못찾는다.
     }
 

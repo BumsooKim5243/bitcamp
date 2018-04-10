@@ -26,9 +26,9 @@ public class ApplicationContext10 {
     private void findAndInstantiateClasses(File dir, String packageName) throws Exception {
         File[] files = dir.listFiles(new FileFilter() {
             public boolean accept(File pathname) {
-                if (pathname.isDirectory() || // 디렉토리 이거나
+                if (pathname.isDirectory() ||                     // 디렉토리 이거나
                         (pathname.getName().endsWith(".class") && // .class 파일인 경우 
-                        !pathname.getName().contains("$"))) { // 단 중첩클래스는 제외
+                        !pathname.getName().contains("$"))) {     // 단 중첩클래스는 제외
                     return true;
                 }
                 return false;
