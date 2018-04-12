@@ -27,10 +27,3 @@ public class Exam01_2 {
         }
     }
 }
-
-
-
-
-
-
-
