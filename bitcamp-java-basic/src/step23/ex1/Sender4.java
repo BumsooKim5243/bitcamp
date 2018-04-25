@@ -22,6 +22,9 @@ public class Sender4 {
         Scanner in = new Scanner(socket.getInputStream());
         
         System.out.println("서버에 데이터 송신 중...");
+        
+        long startTime = System.currentTimeMillis();
+        
         //1) 파일 크기 보내기
         out.writeLong(file.length());
         
@@ -33,7 +36,10 @@ public class Sender4 {
         while ((b = fileIn.read()) != -1) {
             out.write(b);
         } 
-        System.out.println("서버에 데이터 송신 완료!");
+        
+        long endTime = System.currentTimeMillis();
+        
+        System.out.printf("서버에 데이터 송신 완료!(%d밀리초)\n", endTime - startTime);
         
         //4) 서버의 응답받기
         String response = in.nextLine();

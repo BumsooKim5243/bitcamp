@@ -15,13 +15,11 @@ public class Task {
     private Member worker;
     private Team team;
     
-    public Task() {}
-    
     public Task(Team team) {
-        this.team =team;
+        this.team = team;
     }
     
-    public Task(String title, Date startDate, Date endDate) {
+    public Task(Team team, String title, Date startDate, Date endDate) {
         this.team = team;
         this.title = title;
         this.startDate = startDate;
@@ -32,18 +30,15 @@ public class Task {
     public int getNo() {
         return no;
     }
-    
     public void setNo(int no) {
         this.no = no;
     }
-    
     public int getState() {
         return state;
     }
     public void setState(int state) {
         this.state = state;
     }
-    
     public Member getWorker() {
         return worker;
     }
@@ -80,5 +75,10 @@ public class Task {
         return "Task [title=" + title + ", startDate=" + startDate + ", endDate=" + endDate + ", state=" + state
                 + ", worker=" + worker + ", team=" + team + "]";
     }
-    
 }
+
+//ver 17 - 사용자 정의 데이터 타입 생성
+
+
+
+
