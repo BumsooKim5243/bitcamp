@@ -30,7 +30,6 @@ DROP TABLE IF EXISTS addr RESTRICT;
 -- 강의배정
 DROP TABLE IF EXISTS lect_tcher RESTRICT;
 
-
 -- 수강생
 CREATE TABLE stnt (
     mno    INTEGER     NOT NULL COMMENT '수강생번호', -- 수강생번호
@@ -46,7 +45,6 @@ ALTER TABLE stnt
         PRIMARY KEY (
             mno -- 수강생번호
         );
-
 
 -- 수강생 유니크 인덱스
 CREATE UNIQUE INDEX UIX_stnt
@@ -71,8 +69,7 @@ ALTER TABLE tcher
             mno -- 강사번호
         );
 
-
--- 강사 유니크 인덱스2
+-- 강사 유니크 인덱스
 CREATE UNIQUE INDEX UIX_tcher
     ON tcher ( -- 강사
         acc_no ASC, -- 통장번호
@@ -384,4 +381,3 @@ ALTER TABLE lect_tcher
         REFERENCES lect ( -- 강의
             lno -- 강의번호
         );
- 

@@ -58,8 +58,7 @@ public class DefaultDataSource implements DataSource {
             !con.isValid(1)) { // 그 연결이 유효하지 않다면, 
             System.out.println("새 연결 객체를 만든다.");
             return new ConnectionProxy(
-                    this,
-                    DriverManager.getConnection(jdbcUrl, user, password));
+                    this, DriverManager.getConnection(jdbcUrl, user, password));
             // isValid(초)
             // 그 연결이 유효한지 검사하기 위해 DBMS에 간단한 메시지를 보낸다.
             // DBMS 서버에서 1초 이내에 응답이 온다면 유효한 것으로 판단한다.

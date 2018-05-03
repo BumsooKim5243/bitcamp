@@ -114,3 +114,15 @@ insert into lect_appl(lano, lno, mno, rdt) values(8, 3, 104, '2017-11-11');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
