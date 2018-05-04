@@ -22,7 +22,7 @@ public class Exam03 {
         
         // AnnotationConfigApplicationContext 사용
         // => 스프링 설정정보를 담고 있는 클래스 정보를 넘긴다.
-        iocContainer = new AnnotationConfigApplicationContext(AppConfig.class); 
+        iocContainer = new AnnotationConfigApplicationContext(AppConfig.class);
         
         // IoC 컨테이너에 보관된 객체를 꺼내기
         Car car = (Car) iocContainer.getBean("c1");
