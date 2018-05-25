@@ -2,7 +2,6 @@ package bitcamp.java106.pms.servlet.team;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bitcamp.java106.pms.dao.TeamDao;
-import bitcamp.java106.pms.dao.TeamMemberDao;
-import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.domain.Team;
 import bitcamp.java106.pms.servlet.InitServlet;
 
@@ -22,12 +19,10 @@ import bitcamp.java106.pms.servlet.InitServlet;
 public class TeamViewServlet extends HttpServlet {
 
     TeamDao teamDao;
-    TeamMemberDao teamMemberDao;
     
     @Override
     public void init() throws ServletException {
         teamDao = InitServlet.getApplicationContext().getBean(TeamDao.class);
-        teamMemberDao = InitServlet.getApplicationContext().getBean(TeamMemberDao.class);
     }
     
     @Override
@@ -89,35 +84,15 @@ public class TeamViewServlet extends HttpServlet {
             out.println("</p>");
             out.println("</form>");
             
-            List<Member> members = teamMemberDao.selectListWithEmail(name);
-            
-            out.println("<h2>회원 목록</h2>");
-            out.println("<form action='member/add' method='post'>");
-            out.println("<input type='text' name='memberId' placeholder='회원아이디'>");
-            out.printf("<input type='hidden' name='teamName' value='%s'>\n", name);
-            out.println("<button>추가</button>");
-            out.println("</form>");
-            out.println("<table border='1'>");
-            out.println("<tr><th>아이디</th><th>이메일</th><th> </th></tr>");
-            for (Member member : members) {
-                out.printf("<tr>"
-                        + "<td>%s</td>"
-                        + "<td>%s</td>"
-                        + "<td><a href='member/delete?teamName=%s&memberId=%s'>삭제</a></td>"
-                        + "</tr>\n", 
-                        member.getId(), 
-                        member.getEmail(),
-                        name,
-                        member.getId());
-            }
-            out.println("</table>");
+            // 팀 회원의 목록을 출력하는 것은 TeamMemberListServlet에게 맡긴다.
+            RequestDispatcher 요청배달자 = request.getRequestDispatcher("/team/member/list");
+            요청배달자.include(request, response);
+            // TeamMemberListServlet이 작업을 수행한 후 이 서블릿으로 되돌아 온다.
                
         } catch (Exception e) {
             RequestDispatcher 요청배달자 = request.getRequestDispatcher("/error");
             request.setAttribute("error", e);
             request.setAttribute("title", "팀 상세조회 실패!");
-            // 다른 서블릿으로 실행을 위임할 때,
-            // 이전까지 버퍼로 출력한 데이터는 버린다.
             요청배달자.forward(request, response);
         }
         out.println("</body>");
