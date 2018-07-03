@@ -24,7 +24,7 @@ obj.setPassword("1111");
 %>
  
 <h2>PageContext 저장소에서 값 꺼내기</h2>
-<jsp:useBean id="member" type="jsp.Member"></jsp:useBean>
+<jsp:useBean id="member" type="jsp.Member"/>
 
 아이디: <%=member.getId() %><br>
 이메일: <%=member.getEmail() %><br>

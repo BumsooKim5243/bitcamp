@@ -37,7 +37,8 @@ pageContext.setAttribute("list",arr);
 <h2>type 과 class 속성을 동시에 설정하기</h2>
 <jsp:useBean id="list" 
 			 type="java.util.List<Member>"
-			 class="java.util.ArrayList"></jsp:useBean>
+			 class="java.util.ArrayList">
+</jsp:useBean>
 
 <%
 for (Member member : list) {
