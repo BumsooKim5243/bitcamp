@@ -1,5 +1,5 @@
 // 서블릿을 서블릿 컨테이너에 배치하기 : 애노테이션으로 설정하는 방법
-package step02;
+package step02; 
 
 import java.io.IOException;
 import java.io.PrintWriter;
