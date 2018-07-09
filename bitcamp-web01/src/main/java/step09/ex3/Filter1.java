@@ -11,20 +11,25 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 @WebFilter("/step09/ex3/*")
-public class Filter1 implements Filter{
-    
+public class Filter1 implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         
         ServletContext sc = request.getServletContext();
-        System.out.printf("step09.ex3.Filter1 => %s, %s\n",
+        System.out.printf("step09.ex3.Filter1 ==> %s, %s\n", 
                 sc.getInitParameter("p1"), sc.getInitParameter("p2"));
         
-        //다음 필터나 서블릿 실행
+        // 다음 필터나 서블릿을 실행한다.
         chain.doFilter(request, response);
-    
-    
+        
     }
-    
 }
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
-public class test{
-    public static void main(String[] args){
-        
-    }
-}
+123
+ABC
+ABC
+가각간
+똘똠똥
+root1234!@#$

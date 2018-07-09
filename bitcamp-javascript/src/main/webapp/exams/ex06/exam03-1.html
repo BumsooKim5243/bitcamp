@@ -11,9 +11,12 @@
 <script>
 "use strict"
 
-// 태그 객체의 onclick 프로퍼티에 리스너 등록하고 이벤트 정보 추출
+// 리스너가 일반 함수나 익명 함수일 경우,
+// this가 가리키는 객체가 이벤트가 발생된 객체이다.
+//
 document.getElementById("btn1").addEventListener("click", function(e) {
 	console.log(this);
+	// 이벤트가 발생한 객체의 속성 값 알아내기
 	console.log(this.getAttribute("data-no"));
 });
 </script>

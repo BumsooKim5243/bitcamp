@@ -28,7 +28,6 @@ public class Exam04 extends HttpServlet {
         for (Cookie cookie : cookies) {
             out.printf("%s=%s\n", cookie.getName(), cookie.getValue());
         }
-        
     }
 }
 
