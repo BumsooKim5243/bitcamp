@@ -201,7 +201,7 @@ function handlePostback(sender_psid, received_postback) {
   } else if (payload === 'menu02') {
 	response = { "text": "역시 불금엔 불고기,소주가 최고! 이슬이~~~" }
   } else if (payload === 'menu03') {
-	response = { "text": "피맥은 언제나 옳소~!!!" }
+	response = { "text": "피맥은 언제나 옳소~!!!" } 
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
