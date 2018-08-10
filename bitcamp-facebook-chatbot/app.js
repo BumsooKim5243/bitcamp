@@ -196,6 +196,12 @@ function handlePostback(sender_psid, received_postback) {
     response = { "text": "Thanks!" }
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
+  } else if (payload === 'menu01') {
+	response = { "text": "오 ~~ 탁월한 선택! 전지현 드라마 보셨군요!" }
+  } else if (payload === 'menu02') {
+	response = { "text": "역시 불금엔 불고기,소주가 최고! 이슬이~~~" }
+  } else if (payload === 'menu03') {
+	response = { "text": "피맥은 언제나 옳소~!!!" }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
