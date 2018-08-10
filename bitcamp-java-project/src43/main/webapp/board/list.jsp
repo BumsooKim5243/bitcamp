@@ -1,4 +1,4 @@
-<%@page import="bitcamp.java106.pms.domain.Board"%>
+<%@page import="bitcamp.java106.pms.domain.PhotoBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
@@ -20,11 +20,11 @@
     <th>번호</th><th>제목</th><th>등록일</th>
 </tr>
 <jsp:useBean id="list"
-            type="java.util.List<Board>"
+            type="java.util.List<PhotoBoard>"
             class="java.util.ArrayList"
             scope="request"/>
 <%
-for (Board board : list) {
+    for (PhotoBoard board : list) {
 %>
 <tr>
     <td><%=board.getNo()%></td>
